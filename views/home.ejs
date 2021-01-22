@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Turf</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        #content{
+            background-image: url('/chat.png');
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="wrapper d-flex align-items-stretch">
+        <nav id="sidebar">
+            <div class="p-4 pt-5">
+                <a href="#" class="img logo rounded-circle mb-5" style="background-image: url(/logo.png);"></a>
+                <p class="text-center mb-4" style="font-size: large; font-family: cursive;">
+                    <%= currentUser.username.toUpperCase() %>
+                </p>
+                <ul class="list-unstyled components mb-5">
+                    <% for (let user of userList){ %>
+                        <% if(user._id.equals(currentUser._id)){ %>
+                            <% }else{ %>  
+                        <li><a href="/<%= user._id %> ">
+                                <%= user.username %>
+                            </a></li>
+                            <% } %> 
+                        <% } %>
+                </ul>
+                <div class="footer">
+                    <ul class="list-unstyled">
+                        <li><a href="/logout">logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div id="content" class="p-4 p-md-5" id="content">
+            <button type="button" id="sidebarCollapse" class="btn btn-default">
+                <i class="fa fa-bars"></i>
+                <span class="sr-only">Toggle Menu</span>
+              </button>
+        </div>
+
+        <script src="/jquery.min.js"></script>
+        <script src="/popper.js"></script>
+        <script src="/bootstrap.min.js"></script>
+        <script src="/main.js"></script>
+</body>
+
+</html>
