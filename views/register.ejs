@@ -8,10 +8,19 @@
                         <h3 class="card-title text-center">REGISTER</h3>
                         <form action="/register" method="POST" class="needs-validation" novalidate>
                             <div class="mb-3">
+                                <label for="name" class="form-label">Username
+                                </label>
+                                <input class="form-control" type="text" id="name" name="name" placeholder="Full name" required autofocus>
+                                <div class="valid-feedback">Looks Good !</div>
+                                <div class="invalid-feedback">
+                                    Please enter your Full Name.
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
                                 <label for="username" class="form-label">Username
                                 </label>
-                                <input class="form-control" type="text" id="username" name="username"
-                                    placeholder="Username" required autofocus>
+                                <input class="form-control" type="text" id="username" name="username" placeholder="Username" required autofocus>
                                 <div class="valid-feedback">Looks Good !</div>
                                 <div class="invalid-feedback">
                                     Please choose a Username.
@@ -21,8 +30,7 @@
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email
                                 </label>
-                                <input class="form-control" type="email" id="email" name="email" placeholder="Eamil"
-                                    required>
+                                <input class="form-control" type="email" id="email" name="email" placeholder="Eamil" required>
                                 <div class="valid-feedback">Looks Good !</div>
                                 <div class="invalid-feedback">
                                     Please choose an Email.
@@ -32,8 +40,7 @@
                             <div class="mb-3">
                                 <label for="password" class="form-label">Password
                                 </label>
-                                <input class="form-control" type="password" id="password" name="password"
-                                    placeholder="Password" required>
+                                <input class="form-control" type="password" id="password" name="password" placeholder="Password" required>
                                 <div class="valid-feedback">Looks Good !</div>
                                 <div class="invalid-feedback">
                                     Please choose an Password.
@@ -42,7 +49,7 @@
                             <button class="btn btn-outline-success col-12 mt-3">Submit</button>
                         </form>
                         <br>
-                    <a href="/login" class="btn btn-link col-12 text-center" >Login Instead ?</a>
+                        <a href="/login" class="btn btn-link col-12 text-center">Login Instead ?</a>
                     </div>
                 </div>
             </div>

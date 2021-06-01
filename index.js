@@ -44,7 +44,7 @@ const store = new MongoDBStore({
     touchAfter: 24 * 60 * 60
 })
 
-store.on("error", function (e) {
+store.on("error", function(e) {
     console.log("session store error", e);
 })
 
@@ -77,7 +77,7 @@ app.use((req, res, next) => {
     next();
 })
 
-app.get('/', isLoggedIn, async (req, res) => {
+app.get('/', isLoggedIn, async(req, res) => {
     const userList = await User.find();
     res.render('home', { userList })
 })
@@ -96,18 +96,17 @@ app.get('/register', (req, res) => {
     res.render('register')
 })
 
-app.post('/register', async (req, res) => {
+app.post('/register', async(req, res) => {
     try {
-        const { email, username, password } = req.body
-        const user = new User({ email, username });
+        const { name, email, username, password } = req.body
+        const user = new User({ name, email, username });
         const registereduser = await User.register(user, password);
         req.login(registereduser, err => {
             if (err) return next(err);
-            req.flash('success', 'Welcome to YelpCamp');
+            req.flash('success', 'Welcome to Chat App');
             res.redirect('/');
         })
-    }
-    catch (e) {
+    } catch (e) {
         req.flash('error', e.message);
         res.redirect('/register');
     }
@@ -119,19 +118,22 @@ app.get('/logout', (req, res) => {
     res.redirect('/login')
 })
 
-app.get('/:id', async (req, res) => {
+app.get('/:id', async(req, res) => {
     const userList = await User.find();
     const { id } = (req.params);
     const msgs = await Msg.find({ author: { $in: [req.user._id, id] }, friend: { $in: [req.user._id, id] } });
     res.render('chat', { userList, id, msgs })
 });
 
-app.post('/:id', upload.array('media'), async (req, res) => {
+app.post('/:id', upload.array('media'), async(req, res) => {
     const { id } = req.params.id
     const msg = new Msg(req.body.msg);
     msg.file = req.files.map(f => ({ url: f.path, filename: f.filename }));
     msg.author = req.user._id;
     msg.friend = req.body.friend;
+
+    var date = new Date();
+    msg.CreatedAt = date.toLocaleString();
     await msg.save();
     req.flash('success', 'Message Successfully Send !');
     res.redirect(`/${req.body.friend}`);

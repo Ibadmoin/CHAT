@@ -13,11 +13,8 @@ const msgSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: "User"
     },
-    friend: String
-    //{
-    //     type: Schema.Types.ObjectId,
-    //     ref: "friend"
-    // }
+    friend: String,
+    CreatedAt: String
 });
 
 module.exports = mongoose.model('msg', msgSchema);
