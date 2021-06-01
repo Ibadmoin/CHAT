@@ -118,7 +118,7 @@ app.get('/logout', (req, res) => {
     res.redirect('/login')
 })
 
-app.get('/:id', async(req, res) => {
+app.get('/:id', isLoggedIn, async(req, res) => {
     const userList = await User.find();
     const { id } = (req.params);
     const msgs = await Msg.find({ author: { $in: [req.user._id, id] }, friend: { $in: [req.user._id, id] } });
@@ -149,7 +149,7 @@ app.use((err, req, res, next) => {
     res.status(statusCode).render('error', { err });
 });
 
-const port = 8000; //process.env.PORT || 8080;
+const port = 81; //process.env.PORT || 8080;
 app.listen(port, () => {
-    console.log('Serving to port 8000');
+    console.log('Serving to port 81');
 });
