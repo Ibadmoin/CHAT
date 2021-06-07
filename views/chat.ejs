@@ -9,7 +9,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" type="text/css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link rel="stylesheet" href="/style.css">
-    <title>Turf | Chat</title>
+    <title>Chat App</title>
 </head>
 
 <body style="padding-top : 30px;">
@@ -37,15 +37,19 @@
                                     <a href="/<%= user._id %>">
                                         <div class="chat_list">
                                             <div class="chat_people">
-                                                <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
-                                                <div class="chat_ib">
-                                                    <h5>
-                                                        <%= user.name %>
-                                                    </h5>
-                                                    <p>
-                                                        <%= user.email %>
-                                                    </p>
-                                                </div>
+                                                <% if(user.photo.length > 0 ) {%>
+                                                    <div class="chat_img"> <img src="<%= user.photo[0].url%>" alt="No Profile" style="border-radius: 50%;"> </div>
+                                                    <% }else{ %>
+                                                        <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="No Profile"> </div>
+                                                        <% } %>
+                                                            <div class="chat_ib">
+                                                                <h5>
+                                                                    <%= user.name %>
+                                                                </h5>
+                                                                <p>
+                                                                    <%= user.email %>
+                                                                </p>
+                                                            </div>
                                             </div>
                                         </div>
                                     </a>
@@ -62,7 +66,7 @@
                                         <div>
                                             <% }else{ %>
                                                 <div class="incoming_msg">
-                                                    <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="Profile Photo"> </div>
+                                                    <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="No Profile"> </div>
                                                     <div class="received_msg">
                                                         <div class="received_withd_msg">
 
@@ -71,7 +75,7 @@
                                                                     <%= msg.description %>
                                                                         <% if(msg.file.length> 0){ %>
                                                                             <a class="btn btn-warning text-white btn-sm ml-2" href="<%= msg.file[0].url.replace('/upload', '/upload/fl_attachment').replace('.pdf','.jpg') %> ">
-                                                                                <i class="fa fa-download"></i> Download the File
+                                                                                <i class="fa fa-download"></i> Download File/s
                                                                             </a>
                                                                             <% } %>
                                                                 </p>
@@ -86,9 +90,9 @@
                                             <input type="text" name="friend" value="<%=id%>" style="display: none;">
                                             <div class="type_msg">
                                                 <div class="input_msg_write">
-                                                    <input type="text" class="write_msg" placeholder="Write Something" name="msg[description]" required />
+                                                    <input type="text" class="write_msg" placeholder="Write Something" name="msg[description]" required style="color: white;" autocomplete="off" />
                                                     <button class="msg_send_btn" type="submit"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
-                                                    <label class="msg_attach_btn"><i class="fa fa-paperclip" aria-hidden="true"></i> <input type="file" id="media" name="media" style="display: none;"></label>
+                                                    <label class="msg_attach_btn"><i class="fa fa-paperclip" aria-hidden="true"></i> <input type="file" id="media" name="media" style="display: none;" accept=".jpg,.jpeg,.png,.psd,.ai,.bmp,.ico,.gif"></label>
                                                 </div>
                                             </div>
                                         </form>

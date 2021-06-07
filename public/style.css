@@ -163,6 +163,7 @@ img {
     float: left;
     padding: 30px 15px 0 25px;
     width: 60%;
+    background: rgba(0, 0, 0, 0.6);
 }
 
 .sent_msg p {
@@ -232,4 +233,11 @@ img {
 .msg_history {
     height: 516px;
     overflow-y: auto;
+}
+
+body {
+    background-image: url('/intro-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }

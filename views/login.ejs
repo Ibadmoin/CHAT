@@ -1,38 +1,35 @@
 <% layout('layouts/boilerplate.ejs') %>
-<div class="container align-items-center mb-5">
-    <div class="row">
-        <div class="col-md-4 offset-md-4">
-            <div class="card shadow">
-                <div class="card-body py-5">
-                    <h3 class="card-title text-center">LOGIN</h5>
-                    <form action="/login" method="POST" class="needs-validation" novalidate>
-                        <div class="mb-3">
-                            <label class="form-label" for="username">Username</label>
-                            <input class="form-control" type="text" id="username" name="username" placeholder="username" autofocus required>
-                            <div class="valid-feedback">
-                                Looks good!
-                            </div>
-                            <div class="invalid-feedback">
-                                Please enter a Username.
-                            </div>
-                        </div>
+    <div class="container align-items-center mt-5">
+        <div class="row">
+            <div class="col-md-4 offset-md-4">
+                <div class="card shadow">
+                    <div class="card-body py-5 px-5">
+                        <h3 class="card-title text-center mb-5" style="font-family: cursive;">LOGIN</h5>
+                            <form action="/login" method="POST" class="needs-validation" novalidate>
+                                <div class="mb-1">
+                                    <input class="form-control" type="text" id="username" name="username" placeholder="Username" autocomplete="off" autofocus required>
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Please enter a Username.
+                                    </div>
+                                </div>
 
-                        <div class="mb-3">
-                            <label class="form-label" for="password">Password</label>
-                            <input class="form-control" type="password" id="password" name="password" placeholder="password" required>
-                            <div class="valid-feedback">
-                                Looks good!
-                            </div>
-                            <div class="invalid-feedback">
-                                Please enter a Username.
-                            </div>
-                        </div>
-                        <button class="btn btn-outline-success col-12 mt-3">Login</button>
-                    </form>
-                    <br>
-                    <a href="/register" class="btn btn-link col-12 text-center" >Register Instead ?</a>
+                                <div class="mb-3">
+                                    <input class="form-control" type="password" id="password" name="password" placeholder="Password" required>
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Please enter a Username.
+                                    </div>
+                                </div>
+                                <button class="btn btn-outline-success btn-sm col-12 mt-1">Login</button>
+                            </form>
+                            <a href="/register" class="btn bg-light btn-sm col-12 mt-2">Don't Have An Account? Register..</a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>

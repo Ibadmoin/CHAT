@@ -96,10 +96,11 @@ app.get('/register', (req, res) => {
     res.render('register')
 })
 
-app.post('/register', async(req, res) => {
+app.post('/register', upload.array('media'), async(req, res) => {
     try {
         const { name, email, username, password } = req.body
         const user = new User({ name, email, username });
+        user.photo = { url: req.files[0].path, filename: req.files[0].filename }
         const registereduser = await User.register(user, password);
         req.login(registereduser, err => {
             if (err) return next(err);
