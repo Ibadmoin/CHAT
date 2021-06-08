@@ -169,7 +169,7 @@ app.use((err, req, res, next) => {
     res.status(statusCode).render('error', { err });
 });
 
-const port = 81; //process.env.PORT || 8080;
+const port = 8080; //process.env.PORT || 8080;
 app.listen(port, () => {
-    console.log('Serving to port 81');
+    console.log('Serving to port 8080');
 });
