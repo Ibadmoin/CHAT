@@ -18,15 +18,23 @@
             <div class="inbox_msg">
                 <div class="inbox_people">
                     <div class="headind_srch">
-                        <div class="recent_heading col-9">
-                            <h4>
-                                <%= currentUser.name.toUpperCase() %>
-                            </h4>
-                            <p>
-                                <%= currentUser.email %>
-                            </p>
+                        <div class="recent_heading col-10">
+                            <div class="chat_img p-0"> <img src="<%= currentUser.photo[0].url%>" alt="No Profile" style="border-radius: 50%;"> </div>
+                            <div class="row">
+                                <div class="col-12">
+
+                                    <a href="/profile/<%= currentUser._id %> " title="Edit Profile" style="text-decoration: none;">
+                                        <h4>
+                                            <%= currentUser.name.toUpperCase() %>
+                                        </h4>
+                                    </a>
+                                    <p>
+                                        <%= currentUser.email %>
+                                    </p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="srch_bar col-3">
+                        <div class="srch_bar col-2">
                             <a href="/logout" class="btn btn-danger btn-sm"><i class="fa fa-sign-out"></i> Logout</a>
                         </div>
                     </div>
@@ -57,8 +65,10 @@
                                         <% } %>
                     </div>
                 </div>
-                <div class="mesgs">
-                    <p class="text-center"> <i class="fa fa-search"></i> Choose A Friend To Start A Chat</p>
+                <div class="mesgs" style="color: white;">
+                    <div class="msg_history">
+                        <p class="text-center"> <i class="fa fa-search"></i> Choose A Friend To Start A Chat</p>
+                    </div>
                 </div>
             </div>
         </div>

@@ -37,7 +37,7 @@ img {
 }
 
 .headind_srch {
-    padding: 10px 29px 10px 20px;
+    padding: 10px 29px 10px 0px;
     overflow: hidden;
     border-bottom: 1px solid #c4c4c4;
 }
@@ -163,7 +163,7 @@ img {
     float: left;
     padding: 30px 15px 0 25px;
     width: 60%;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.9);
 }
 
 .sent_msg p {
@@ -193,6 +193,7 @@ img {
     font-size: 15px;
     min-height: 48px;
     width: 100%;
+    outline: none;
 }
 
 .type_msg {

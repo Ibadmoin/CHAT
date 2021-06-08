@@ -18,15 +18,23 @@
             <div class="inbox_msg">
                 <div class="inbox_people">
                     <div class="headind_srch">
-                        <div class="recent_heading col-9">
-                            <h4>
-                                <%= currentUser.name.toUpperCase() %>
-                            </h4>
-                            <p>
-                                <%= currentUser.email %>
-                            </p>
+                        <div class="recent_heading col-10">
+                            <div class="chat_img p-0"> <img src="<%= currentUser.photo[0].url%>" alt="No Profile" style="border-radius: 50%;"> </div>
+                            <div class="row">
+                                <div class="col-12">
+
+                                    <h4>
+                                        <a href="/profile/<%= currentUser._id %> ">
+                                            <%= currentUser.name.toUpperCase() %>
+                                        </a>
+                                    </h4>
+                                    <p>
+                                        <%= currentUser.email %>
+                                    </p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="srch_bar col-3">
+                        <div class="srch_bar col-2 text-center">
                             <a href="/logout" class="btn btn-danger btn-sm"><i class="fa fa-sign-out"></i> Logout</a>
                         </div>
                     </div>
@@ -69,7 +77,6 @@
                                                     <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="No Profile"> </div>
                                                     <div class="received_msg">
                                                         <div class="received_withd_msg">
-
                                                             <% } %>
                                                                 <p>
                                                                     <%= msg.description %>
@@ -79,8 +86,6 @@
                                                                             </a>
                                                                             <% } %>
                                                                 </p>
-
-
                                                                 <span class="time_date"><%= msg.CreatedAt%></span></div>
                                                     </div>
                                                 </div>

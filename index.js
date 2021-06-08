@@ -140,6 +140,25 @@ app.post('/:id', upload.array('media'), async(req, res) => {
     res.redirect(`/${req.body.friend}`);
 })
 
+app.get('/profile/:id', async(req, res) => {
+    const user = await User.findById(req.params.id);
+    if (!user) {
+        req.flash('error', 'Cannot find that User')
+        return res.redirect('/');
+    }
+    res.render('profile', { user });
+});
+
+app.put('/profile/:id', upload.array('media'), async(req, res) => {
+    const { id } = req.params
+    const { name, email } = req.body
+    const user = await User.findByIdAndUpdate(id, { name, email });
+    user.photo = { url: req.files[0].path, filename: req.files[0].filename }
+    await user.save();
+    req.flash('success', 'Profile Successfully Updated !')
+    res.redirect('/');
+});
+
 app.all('*', (req, res, next) => {
     next(new ExpressError('Page Not Found', 404));
 });
