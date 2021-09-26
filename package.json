@@ -1,7 +1,6 @@
 {
   "name": "chatapp",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -10,7 +9,7 @@
   "author": "Shahriyar",
   "license": "ISC",
   "dependencies": {
-    "cloudinary": "^1.23.0",
+    "cloudinary": "^1.27.0",
     "connect-flash": "^0.1.1",
     "connect-mongo": "^3.2.0",
     "dotenv": "^8.2.0",
@@ -25,5 +24,15 @@
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^6.1.0"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SyedShahriyarAli/ChatApp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SyedShahriyarAli/ChatApp/issues"
+  },
+  "homepage": "https://github.com/SyedShahriyarAli/ChatApp#readme",
+  "description": ""
 }

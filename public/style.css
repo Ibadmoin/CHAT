@@ -235,10 +235,3 @@ img {
     height: 516px;
     overflow-y: auto;
 }
-
-body {
-    background-image: url('/intro-bg.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
