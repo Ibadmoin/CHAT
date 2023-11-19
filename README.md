@@ -21,7 +21,7 @@ To run this project, you need to have the following installed on your system:
   - DB_URL=database-url
   - SECRET=your-session-secret
 5. Start the server by running `npm start`.
-6. Open `http://localhost:3000` in your browser to access the application.
+6. Open `http://localhost:8080` in your browser to access the application.
 
 ## Features
 
